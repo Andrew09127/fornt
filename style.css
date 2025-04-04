@@ -281,6 +281,14 @@ a:hover{
     color: #c9c5c5;
 }
 
+.button{
+
+}
+
+.container{
+    margin-inline: auto;
+    max-width: 1200px;
+}
 
 /* переделать панель регистрации */
   /* Стили для header-actions (добавьте в ваш CSS) */
@@ -368,3 +376,53 @@ a:hover{
 }
 
 /* конец панели регистрации */
+
+.header{
+
+}
+
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo{
+
+}
+
+.header-logo-image{
+
+}
+
+.header-menu{
+
+}
+
+.header-menu-list{
+
+}
+
+.header-menu-item{
+
+}
+
+.header-menu-link{
+
+}
+
+.header-actions{
+
+}
+
+.header-button{
+
+}
+
+.login-button{
+
+}
+
+.register-button{
+
+}
