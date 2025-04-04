@@ -256,6 +256,30 @@
 
  }
 
+ body{
+    font-family: var(--font-family-base);
+    color: var(--color-gray);
+    font-size: 14px;
+    line-height: 20px;
+    background-color: var(--color-light);
+ }
+
+a,
+button,
+textarea,
+svg *,
+input{
+    transition-duration: var(--transition-duration);
+}
+
+a{
+    color: var(--color-gray);
+    text-decoration: none;
+}
+
+a:hover{
+    color: #c9c5c5;
+}
 
 
 /* переделать панель регистрации */
