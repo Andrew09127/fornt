@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#" class="header-logo">
+                    <img src="./images/header-logo.png" alt="Hacaton logo" class="header-logo-image">
+                </a>
+                <!-- панель навигации -->
+                <nav class="header-menu">
+                    <ul class="header-menu-list">
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">#</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="header-button login-button">Войти</button>
+                    <button class="header-button register-button">Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main"></main>
+    <footer class="footer"></footer>
+
+
+<!-- Два модуля для входа и регистрации -->
+    <div id="login-modal" class="modal"> 
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Вход</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit" class="modal-submit">Войти</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Регистрация</h2>
+            <form id="register-form">
+                <input type="text" placeholder="Имя" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit" class="modal-submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
