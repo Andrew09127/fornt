@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Авторизация</h2>
+    <input type="text" id="login" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Вход</button>
+    <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function getUsers() {
+      return JSON.parse(localStorage.getItem('users') || '[]');
+    }
+
+    function login() {
+      const login = document.getElementById('login').value.trim();
+      const password = document.getElementById('password').value;
+
+      const users = getUsers();
+      const user = users.find(u => u.login === login && u.password === password);
+
+      if (user) {
+        document.getElementById('message').textContent =
+          `Добро пожаловать, ${user.name}! (роль: ${user.role})`;
+        document.getElementById('message').style.color = 'green';
+      } else {
+        document.getElementById('message').textContent = 'Неверный логин или пароль.';
+        document.getElementById('message').style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
