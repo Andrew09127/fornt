@@ -4,73 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Полезная информация</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            background: #007bff;
-            padding: 10px;
-            color: white;
-        }
-        .article-tile {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-        .article-tile:hover {
-            transform: scale(1.02);
-        }
-        .article-image {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .article-title {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-        .article-meta {
-            font-size: 0.9em;
-            color: #666;
-        }
-        .context-menu {
-            display: none;
-            position: absolute;
-            background: white;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-        .context-menu-item {
-            padding: 10px;
-            cursor: pointer;
-        }
-        .context-menu-item:hover {
-            background: #f0f0f0;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+        <link rel="stylesheet" href="./css/main.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+            }
+            .article-tile {
+                background: white;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin: 10px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+                cursor: pointer;
+            }
+            .article-tile:hover {
+                transform: scale(1.02);
+            }
+            .article-image {
+                max-width: 100%;
+                border-radius: 5px;
+            }
+            .article-title {
+                font-size: 1.5em;
+                margin: 10px 0;
+            }
+            .article-meta {
+                font-size: 0.9em;
+                color: #666;
+            }
+            .context-menu {
+                display: none;
+                position: absolute;
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+            .context-menu-item {
+                padding: 10px;
+                cursor: pointer;
+            }
+            .context-menu-item:hover {
+                background: #f0f0f0;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
 </head>
-<body>
-
-    <div class="navbar">
-        <div>🏠 Главная</div>
-        <div>📚 Полезная информация</div>
-        <div>📝 История изменений</div>
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="#" class="header-logo">
+                <img src="./images/header-logo.png" alt="Hacaton logo" class="header-logo-image">
+            </a>
+            <!-- панель навигации -->
+            <nav class="header-menu">
+                <ul class="header-menu-list">
+                    <li class="header-menu-item ">
+                        <a href="#" class="header-menu-link active">Полезная информация</a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a href="#" class="header-menu-link">Задачи</a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a href="#" class="header-menu-link">Администрирование</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="header-button login-button">Войти</button>
+                <button class="header-button register-button">Зарегистрироваться</button>
+            </div>
+        </div>
     </div>
-
+</header>
+<body>
     <div id="article-list">
         <div class="article-tile" onclick="viewArticle('Статья 1')">
             <img src="image1.jpg" alt="Изображение статьи 1" class="article-image">
