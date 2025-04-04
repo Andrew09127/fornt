@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Регистрация</h2>
+    <input type="text" id="login" placeholder="Логин (только латинские буквы)">
+    <input type="text" id="name" placeholder="ФИО (только русские буквы)">
+    <input type="password" id="password1" placeholder="Пароль">
+    <input type="password" id="password2" placeholder="Повторите пароль">
+    <button onclick="register()">Зарегистрироваться</button>
+    <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function getUsers() {
+      return JSON.parse(localStorage.getItem('users') || '[]');
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    function register() {
+      const login = document.getElementById('login').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const password1 = document.getElementById('password1').value;
+      const password2 = document.getElementById('password2').value;
+
+      const loginRegex = /^[a-zA-Z]+$/;
+      const nameRegex = /^[А-Яа-яЁё\s]+$/;
+      const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+=\-{}\[\]:;"'<>,.?/\\|`~]+$/;
+
+      if (!loginRegex.test(login)) {
+        return showMessage('Логин должен содержать только латинские буквы');
+      }
+      if (!nameRegex.test(name)) {
+        return showMessage('ФИО должно содержать только русские буквы');
+      }
+      if (!passwordRegex.test(password1)) {
+        return showMessage('Пароль содержит недопустимые символы');
+      }
+      if (password1 !== password2) {
+        return showMessage('Пароли не совпадают');
+      }
+
+      const users = getUsers();
+      if (users.some(u => u.login === login)) {
+        return showMessage('Такой логин уже существует');
+      }
+
+      users.push({ login, name, password: password1, role: 'Пользователь' });
+      saveUsers(users);
+
+      alert('Регистрация успешна. Теперь вы можете войти.');
+      window.location.href = 'login.html';
+    }
+
+    function showMessage(text, color = 'red') {
+      const msg = document.getElementById('message');
+      msg.textContent = text;
+      msg.style.color = color;
+    }
+  </script>
+</body>
+</html>
