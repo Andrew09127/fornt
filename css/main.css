@@ -1,3 +1,8 @@
+@import url(./info.css);
+@import url(./tasks.css);
+@import url(./admin.css);
+
+
 @font-face {
     font-family: 'Montserrat';
     src: url('./font/Montserrat-Regular.woff2') format('woff2');
@@ -243,11 +248,11 @@
     /* --color-gray: #333333;
     --color-light: #FFFFFF;
     --color-dark-blue: #03B2A5;
-    --color-lapis-lazuli: #2963A3;
+    --color-lapis-lazuli: #2963A3; */
 
     --transition-duration: 0.2s; 
 
-    --font-family-base: 'Montserrat', sans-serif;
+    /* --font-family-base: 'Montserrat', sans-serif;
 
     --border-radius-big: 4px;
     --border-radius-small: 24px;
@@ -385,26 +390,34 @@ a:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
 }
 
 .header-logo{
-
-}
-
-.header-logo-image{
-
+    width: 51px;
+    height: 36px;
+    flex-shrink: 0;
+    margin-right: 10px;
 }
 
 .header-menu{
-
+    
 }
 
 .header-menu-list{
+    display: flex;
+    column-gap: 30px;
+    min-width: 720px;
+    justify-content: center;
+    align-items: center;
+}
 
+.active{
+    color: green;
 }
 
 .header-menu-item{
-
+    
 }
 
 .header-menu-link{
