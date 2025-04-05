@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#" class="header-logo">
+                    <img src="./images/header-logo.png" alt="Hacaton logo" class="header-logo-image">
+                </a>
+                <div class="neon-blob"></div>
+                <!-- панель навигации -->
+                <nav class="header-menu">
+                    <ul class="header-menu-list">
+                        <li class="header-menu-item ">
+                            <a href="#" class="header-menu-link active">Полезная информация</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="./tasks.html" class="header-menu-link">Задачи</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="#" class="header-menu-link">Администрирование</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="button header-button login-button">Войти</button>
+                    <button class="button header-button register-button">Перейти что-бы <span class="green">зарегистрироваться*</span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main"></main>
+    <footer class="footer"></footer>
+
+
+<!-- Два модуля для входа и регистрации -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Вход</h2>
+        <form id="login-form">
+            <input type="text" id="login-username" placeholder="Логин" required>
+            <input type="password" id="login-password" placeholder="Пароль" required>
+            <button type="submit" class="modal-submit">Войти</button>
+        </form>
+    </div>
+</div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Регистрация</h2>
+            <form id="register-form">
+                <input type="text" id="username" placeholder="Логин" pattern="[A-Za-z]+" required>
+                <input type="text" id="fullname" placeholder="ФИО" pattern="[А-Яа-яЁё\s]+" required>
+                <input type="password" id="password" placeholder="Пароль" required>
+                <input type="password" id="confirm-password" placeholder="Подтвердите пароль" required>
+                <button type="submit" class="modal-submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./js/navigation.js" defer></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
