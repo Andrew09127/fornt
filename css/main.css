@@ -4,36 +4,22 @@
 
 
 @font-face {
-    font-family: 'Montserrat';
-    src: url('./font/Montserrat-Regular.woff2') format('woff2');
-    font-weight: 400;
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Light.woff2') format('woff2');
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    src: url('./font/Montserrat-Medium.woff2') format('woff2');
+    font-family: 'Unbounded';
+    src: url('./font/Unbounded-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./font/Montserrat-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: 'Montserrat';
-    src: url('./font/Montserrat-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
 
 /**
   Нормализация блочной модели
@@ -245,28 +231,28 @@
  }
 
  :root{
-    /* --color-gray: #333333;
+    --color-gray: #A9A9A9;
     --color-light: #FFFFFF;
-    --color-dark-blue: #03B2A5;
-    --color-lapis-lazuli: #2963A3; */
+    --color-green: #9CF075;
+    --color-black: #000000;
 
     --transition-duration: 0.2s; 
 
-    /* --font-family-base: 'Montserrat', sans-serif;
+    --font-family-base: 'Unbounded', sans-serif;
 
     --border-radius-big: 4px;
     --border-radius-small: 24px;
 
-    --input-hight: 48px; */
+    --input-hight: 48px;
 
  }
 
  body{
     font-family: var(--font-family-base);
-    color: var(--color-gray);
-    font-size: 14px;
-    line-height: 20px;
-    background-color: var(--color-light);
+    color: var(--color-light);
+    font-size: 15px;
+    line-height: 100%;
+    background-color: var(--color-black);
  }
 
 a,
@@ -278,16 +264,22 @@ input{
 }
 
 a{
-    color: var(--color-gray);
+    color: var(--color-light);
     text-decoration: none;
+    letter-spacing: 4%;
 }
 
 a:hover{
-    color: #c9c5c5;
+    color: green;
 }
 
 .button{
-
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--color-light);
 }
 
 .container{
@@ -303,24 +295,36 @@ a:hover{
     margin-left: auto; /* Выравнивание по правому краю */
 }
 
-.header-button {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: transparent;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.login-button {
-    color: #333;
+.login-button{
+  width: 102px;
+  height: 39px;
+  border: 2px solid transparent; /* Прозрачная граница */
+  border-radius: 8px; /* Скругление углов (опционально) */
+  padding: 10px 29px;
+  
+  /* Градиентная граница через background */
+  background: 
+    linear-gradient(to right, #000, #000) padding-box, /* Основной фон */
+    linear-gradient(90deg, rgba(0, 26, 255, 1), rgba(0, 255, 42, 1)) border-box;
+  
+  /* Эффект свечения */
+  box-shadow: 
+    0 0 10px rgba(0, 26, 255, 0.5),
+    0 0 20px rgba(0, 255, 42, 0.3);
 }
 
 .register-button {
-    background: #007bff;
-    color: white;
-    border-color: #007bff;
+  width: 277px;
+  height: 41px;
+  background: rgba(124, 124, 124, 0.25);
+  border-radius: 36px;
+  padding: 13px 16px 14px 17px;
+    
+}
+
+.green{
+  padding-left: 4px;
+  color: var(--color-green);
 }
 
 .header-button:hover {
@@ -394,10 +398,37 @@ a:hover{
 }
 
 .header-logo{
-    width: 51px;
-    height: 36px;
+    width: 77px;
+    height: 38px;
     flex-shrink: 0;
     margin-right: 10px;
+    position: relative;
+}
+
+.neon-blob{
+    width: 728px;
+    height: 369px;
+    position: absolute;
+    top: -184px;
+    left: 357px;
+    
+    /* Градиент */
+    background: linear-gradient(
+      90deg, 
+      #001AFF 57%, 
+      #00FF2A 80%
+    );
+    
+    /* Сильное размытие */
+    filter: blur(179px);
+    
+    /* Форма (скругление для "пятна") */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    
+    /* Прозрачность (опционально) */
+    opacity: 0.7;
+    z-index: -1; /* Отправляет пятно на задний план */
+    pointer-events: none;
 }
 
 .header-menu{
@@ -406,7 +437,7 @@ a:hover{
 
 .header-menu-list{
     display: flex;
-    column-gap: 30px;
+    column-gap: 33px;
     min-width: 720px;
     justify-content: center;
     align-items: center;
@@ -425,14 +456,10 @@ a:hover{
 }
 
 .header-actions{
-
+  margin-left: 10px;
 }
 
 .header-button{
-
-}
-
-.login-button{
 
 }
 
