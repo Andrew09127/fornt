@@ -1,6 +1,4 @@
-Стили модуля задач
-
-
+/* Стили модуля задач */
 .tasks-container {
     padding: 20px;
     max-width: 1200px;
@@ -88,20 +86,22 @@
 }
 
 .add-task-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f8fafd;
-    border: 2px dashed #d8e2ef;
+    background: #ffffff; /* Белый фон вместо бледного */
+    border: 2px dashed #2c7be5; /* Синяя пунктирная граница */
     border-radius: 8px;
     padding: 20px;
     cursor: pointer;
-    color: #6e84a3;
-    font-weight: 500;
+    color: #2c7be5; /* Синий текст */
+    font-weight: 600; /* Полужирный */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(44, 123, 229, 0.1); /* Легкая тень */
 }
 
 .add-task-btn:hover {
-    background: #f0f5ff;
+    background: #f0f5ff; /* Светло-синий при наведении */
+    border-color: #1a68d1; /* Темнее синий */
+    transform: translateY(-2px); /* Эффект приподнимания */
+    box-shadow: 0 4px 12px rgba(44, 123, 229, 0.15);
 }
 
 
@@ -223,26 +223,42 @@ body.tab-completed #dynamic-counter {
 }
 
 
-/* Стили для модального окна */
+/* Первое определение */
 .task-creation-modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
     z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Первое определение */
 .task-creation-modal .modal-content {
     background: white;
-    padding: 20px;
     border-radius: 8px;
-    width: 100%;
-    max-width: 500px;
+    width: 90%;
+    max-width: 400px; /* Уменьшили ширину окна */
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .task-creation-modal .form-group {
@@ -291,7 +307,7 @@ body.tab-completed #dynamic-counter {
     background: #f0f4fa;
 }
 
-/* Стили для модального окна */
+/* Второе определение */
 .modal {
     display: none;
     position: fixed;
@@ -304,13 +320,18 @@ body.tab-completed #dynamic-counter {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
+    background: white;
     border-radius: 8px;
-    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
     max-width: 500px;
+    max-height: calc(100vh - 40px); /* Учитываем padding модального окна */
+    margin: 0 auto;
     position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .close-modal {
@@ -369,6 +390,22 @@ textarea {
     line-height: 1.4;
 }
 
+.modal-content,
+.task-creation-modal .modal-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 500px;
+    max-height: calc(100vh - 40px);
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); /* изменено */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    overflow-y: auto;
+    padding: 20px;
+}
 
 /* Адаптивность */
 @media (max-width: 768px) {

@@ -102,50 +102,61 @@
     </div>
 
     <!--Модальное окно  -->
-   <!-- Добавьте в вашем HTML (в modal-content) -->
-<div id="task-creation-modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h3>Новая задача</h3>
-        <form id="new-task-form">
-            <div class="form-group">
-                <label for="task-name">Название:</label>
-                <input type="text" id="task-name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="task-description">Описание:</label>
-                <textarea id="task-description" rows="4"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="task-assignee">Ответственный:</label>
-                <input type="text" id="task-assignee" required placeholder="Введите имя ответственного">
-            </div>
-            
-            <div class="form-group">
-                <label for="task-due-date">Дата создания:</label>
-                <input type="date" id="task-creation-date" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="task-due-date">Плановая дата сдачи:</label>
-                <input type="date" id="task-due-date" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="task-priority">Приоритет:</label>
-                <select id="task-priority" required>
-                    <option value="low">Низкий</option>
-                    <option value="medium">Средний</option>
-                    <option value="high">Высокий</option>
-                </select>
-            </div>
-            
-            <button type="submit" class="submit-btn">Создать</button>
-        </form>
+    <div id="task-creation-modal" class="task-creation-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Новая задача</h2>
+            <form id="new-task-form">
+                <!-- Название задачи -->
+                <div class="form-group">
+                    <label for="task-name">Название*</label>
+                    <input type="text" id="task-name" placeholder="Название задачи" required />
+                </div>
+    
+                <!-- Исполнитель -->
+                <div class="form-group">
+                    <label for="task-assignee">Исполнитель*</label>
+                    <input type="text" id="task-assignee" placeholder="ФИО ответственного" required />
+                </div>
+    
+                <!-- Описание задачи -->
+                <div class="form-group">
+                    <label for="task-description">Описание</label>
+                    <textarea id="task-description" placeholder="Подробное описание задачи"></textarea>
+                </div>
+    
+                <!-- Даты -->
+                <div class="form-group">
+                    <label for="task-creation-date">Дата создания</label>
+                    <input type="date" id="task-creation-date" readonly />
+                    <div class="date-hint">(автоматически)</div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="task-due-date">Срок выполнения*</label>
+                    <input type="date" id="task-due-date" required />
+                    <div class="date-hint">(планируемая дата завершения)</div>
+                </div>
+    
+                <!-- Приоритет -->
+                <div class="form-group">
+                    <label for="task-priority">Приоритет*</label>
+                    <select id="task-priority" required>
+                        <option value="" disabled selected>Выберите приоритет</option>
+                        <option value="low">Низкий</option>
+                        <option value="medium">Средний</option>
+                        <option value="high">Высокий</option>
+                    </select>
+                </div>
+    
+                <div class="form-actions">
+                    <button type="button" id="cancel-task-btn" class="cancel-btn">Отмена</button>
+                    <button type="submit" class="submit-btn">Создать</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    
 
     <script src="./js/tasks.js"></script>
     <script src="./js/navigation.js" defer></script>
